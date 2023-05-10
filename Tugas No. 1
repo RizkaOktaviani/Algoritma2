@@ -1,0 +1,50 @@
+package programkelompok;        //pengelompokkan kelas seperti folder untuk membuat program
+import java.util.Scanner;       //mengimpor Scanner dan fungsi yang dapat digunakan untuk membuat program
+public class ProgramKelompok {  //berisi nama program dari folder package yang akan dibuat
+
+        //metode untuk menjalankan program, jika tidak memiliki fungsi main program maka tidak akan berjalan programnya
+    public static void main(String[] args) {
+            //deklarasi variabel
+        int jumlahMhs;
+        
+            //membuat scanner baru dengan nama console
+        Scanner console = new Scanner(System.in);
+        
+            //menginput berapa banyak jumlah mahasiswa yang diinginkan
+        System.out.print("Berapa masukan nilai mahasiswa = ");    //cetak output ke user
+        jumlahMhs = console.nextInt();   //penggunaan scanner untuk menyimpan apa yang diketik di variabel 
+        
+            //membuat rray untuk menyimpan nama dan nilai mahasiswa
+        String[] namaMhs = new String [jumlahMhs];
+        double[] nilaiMhs = new double [jumlahMhs];
+        double totalMhs = 0;
+        
+            /*menggunakan for untuk melakukan pengulangan beberapa kali sebanyak jumlah mahasiswa. awal pengulangan, i
+              diinisialisasi dengan nilai 0, kemudian bertambah 1 pada setiap iterasi hingga mencapai banyaknya jumlah mahasiswa.*/
+            //mengisi data ke array dengan mengambil inputan nama dan nilai mahasiswa sebanyak jumlah mahasiswa
+        for (int i=0; i<jumlahMhs; i++) {
+            System.out.print("masukkan nama mahasiswa = ");
+            namaMhs [i] = console.next();
+            System.out.print("masukkan nilai mahasiswa = ");
+            nilaiMhs [i] = console.nextDouble();
+                    
+            totalMhs += nilaiMhs[i];    //operator penugasan untuk menambahkan nilai dari nilaiMhs[i] ke variabel totalMhs
+        }
+        
+            //menghitung rata-rata nilai mahasiswa dengan rumus total nilai mahasiswa dibagi jumlah mahasiswa
+        double medianMhs = totalMhs/jumlahMhs;
+        
+            //cetak output yang sudah tersimpan di variabel
+        System.out.println("");
+        System.out.println("       Data Mahasiswa");
+        System.out.println("---------------------------");
+        for (int i = 0; i<jumlahMhs; i++){
+            System.out.println(i+1 + ". Nama Mahasiswa  : " + namaMhs[i]);
+            System.out.println("   Nilai Mahasiswa : " + nilaiMhs[i]);
+        }
+        
+            //cetak output nilai dan rata-rata nilai
+        System.out.println("Total Nilai Mahasiswa \t  : " + totalMhs);
+        System.out.println("Rata-Rata Nilai Mahasiswa : " + medianMhs);
+    }  
+}
