@@ -1,0 +1,55 @@
+/*
+Claura Tri Tispriatina 227064516061
+Rizka Oktaviani 227064516108
+Luthfy Azh-Zhaviery Puary 227064516123
+*/
+
+package programkelompok;
+import java.util.Scanner;
+public class ProgramKelompok2 {
+
+    public static void main(String[] args) {
+
+            //deklarasi variabel
+        int jumlahMhs, totalMhs; 
+        double median;        
+        
+            //membuat scanner baru dengan nama console
+        Scanner console = new Scanner(System.in);
+    
+            //menginput berapa banyak jumlah mahasiswa yang diinginkan
+        System.out.print("Masukan jumlah data mahasiswa = ");    //cetak output ke user
+        jumlahMhs = console.nextInt();   //penggunaan scanner untuk menyimpan apa yang diketik di variabel 
+        
+            //membuat array untuk menyimpan nama, nilai uts, dan nilai uas mahasiswa
+        String[] namaMhs = new String[jumlahMhs];
+        int[] utsArray = new int[jumlahMhs];
+        int[] uasArray = new int[jumlahMhs];
+        
+            /*menggunakan for untuk mengulangi banyaknya jumlah mahasiswa dengan awal inisialisasi
+              i bernilai 0 kemudian bertambah 1 hingga mencapai banyaknya jumlah mahasiswa.*/  
+            //mengisi data ke array dengan mengambil inputan nama dan nilai mahasiswa sebanyak jumlah mahasiswa
+        for(int j=0; j<jumlahMhs; j++) {
+            System.out.print(j+1 + ". masukkan nama mahasiswa = ");
+            namaMhs[j] = console.next();
+            System.out.print("   masukkan nilai uts mahasiswa = ");
+            utsArray[j] = console.nextInt();
+            System.out.print("   masukkan nilai uas mahasiswa = ");
+            uasArray[j] = console.nextInt();
+        }
+
+            //cetak output yang sudah tersimpan di variabel
+        System.out.println("");
+        System.out.println("No\tNama\tUTS\tUAS\tTotal\tRata-Rata");
+        System.out.println("=================================================");
+
+            //cetak output yang telah dibuat dengan susunan(format) variabel yang telah ditentukan
+        for(int j=0; j<jumlahMhs; j++) {
+                //menghitung nilai total mahasiswa berdasar nilai uts ditambah nilai uas yang diinput.
+            totalMhs = utsArray[j] + uasArray[j];
+                //menghitung rata-rata nilai mahasiswa dengan rumus total nilai mahasiswa dibagi 2. 
+            median = totalMhs/2.0;  
+            System.out.printf("%d\t%s\t%d\t%d\t%d\t%,.2f\n", j+1, namaMhs[j], utsArray[j], uasArray[j], totalMhs, median);
+        }
+    }
+}
