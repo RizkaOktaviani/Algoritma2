@@ -1,0 +1,100 @@
+//Rizka Oktaviani//
+//227064516108//
+
+package uts_algoritma2;     //pengelompokkan kelas seperti folder untuk membuat program
+import java.util.Scanner;   //mengimpor Scanner dan fungsi yang dapat digunakan untuk membuat program
+public class nomor_1 {      //berisi nama program dari folder package yang akan dibuat
+    
+        /*metode untuk menjalankan program, jika tidak memiliki fungsi main
+          program maka tidak akan berjalan programnya*/
+    public static void main(String[] args) {
+        
+            //membuat scanner baru dengan nama console
+        Scanner input = new Scanner(System.in);
+
+            //menginput bilangan yang akan dioperasikan untuk dihitung
+        System.out.print("Masukkan angka pertama: ");
+        double angka1 = input.nextDouble();
+        System.out.print("Masukkan angka kedua: ");
+        double angka2 = input.nextDouble();
+        System.out.print("Masukkan operator (+, -, *, /): ");
+        char operator = input.next().charAt(0);
+        
+            //deklarasi variabel
+        double hasil;
+
+            /*penggunaan percabangan dengan switch untuk menentukan operasi yang 
+              sesuai berdasarkan operator yang dimasukkan*/
+        switch (operator) {
+            case '+':   //operator pertambahan
+                hasil = angka1 + angka2;
+                System.out.println("Hasil penjumlahan: " + hasil);
+                break;
+            case '-':   //operator pengurangan
+                hasil = angka1 - angka2;
+                System.out.println("Hasil pengurangan: " + hasil);
+                break;
+            case '*':   //operator perkalian
+                hasil = angka1 * angka2;
+                System.out.println("Hasil perkalian: " + hasil);
+                break;
+            case '/':   //operator pembagian dengan nol
+                if (angka2 != 0) {
+                    hasil = angka1 / angka2;
+                    System.out.println("Hasil pembagian: " + hasil);
+                } else {
+                    System.out.println("Error: Pembagian dengan nol tidak valid!");
+                }
+                break;
+            default:
+                System.out.println("Error: Operator yang dimasukkan tidak valid!");
+        }
+
+            //penggunaan perulangan for untuk mengulang program
+        System.out.print("Apakah Anda ingin melakukan operasi lagi? (ya/tidak): ");
+        String ulang = input.next();
+
+        for (; ulang.equalsIgnoreCase("ya"); ) {
+            System.out.print("Masukkan angka pertama: ");
+            angka1 = input.nextDouble();
+
+            System.out.print("Masukkan angka kedua: ");
+            angka2 = input.nextDouble();
+
+            System.out.print("Masukkan operator (+, -, *, /): ");
+            operator = input.next().charAt(0);
+
+                /*penggunaan percabangan dengan switch untuk menentukan operasi
+                yang sesuai berdasarkan operator yang dimasukkan*/
+            switch (operator) {
+                case '+':
+                    hasil = angka1 + angka2;
+                    System.out.println("Hasil penjumlahan: " + hasil);
+                    break;
+                case '-':
+                    hasil = angka1 - angka2;
+                    System.out.println("Hasil pengurangan: " + hasil);
+                    break;
+                case '*':
+                    hasil = angka1 * angka2;
+                    System.out.println("Hasil perkalian: " + hasil);
+                    break;
+                case '/':
+                    if (angka2 != 0) {
+                        hasil = angka1 / angka2;
+                        System.out.println("Hasil pembagian: " + hasil);
+                    } else {
+                        System.out.println("Error: Pembagian dengan nol tidak valid!");
+                    }
+                    break;
+                default:
+                    System.out.println("Error: Operator yang dimasukkan tidak valid!");
+            }
+                //penggunaan perulangan for untuk mengulang program
+            System.out.print("Apakah Anda ingin melakukan operasi lagi? (ya/tidak): ");
+            ulang = input.next();
+        }
+            //cetak output ke user
+        System.out.println("Terima kasih telah menggunakan kalkulator!");
+    }
+}
